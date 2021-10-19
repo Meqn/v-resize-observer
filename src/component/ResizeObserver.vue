@@ -16,23 +16,23 @@ export default {
   },
   mounted() {
     const { target, disabled, limiter, wait } = this
-    let el = this.$el
+    let $el = this.$el
     if (target) {
       if (typeof target === 'string') {
-        el = document.querySelector(el)
-      } else if (el instanceof Element) {
-        el = target
+        $el = document.querySelector(target)
+      } else if (target instanceof Element) {
+        $el = target
       }
     }
     const options = {
       disabled,
       limiter,
       wait,
-      resize: (data, elem) => {
+      resize: (data, elem) => { // 这里必须使用箭头函数
         this.$emit('resize', data, elem)
       }
     }
-    const ro = new ResizeObserver(el, options)
+    const ro = new ResizeObserver($el, options)
     this.$once('hook:beforeDestroy', () => {
       ro.destroyObserver()
     })

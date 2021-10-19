@@ -8,7 +8,7 @@ function getOptions({ value, arg, modifiers }) {
     options['resize'] = value
   }
   
-  // Limit the rate of size change events
+  // Limit the rate of resize change events
   if (arg) {
     if (arg === 'debounce') options['limiter'] = 'debounce'
     else if (arg === 'throttle') options['limiter'] = 'throttle'

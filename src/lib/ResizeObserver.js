@@ -10,7 +10,7 @@ export default class Resize {
   
   /**
    * constructor
-   * @param {HTMLElement} el 目标元素
+   * @param {HTMLElement|String} el 目标元素
    * @param {Object} options 选项
    * @param {Boolean} options.disabled 是否可用
    * @param {String} options.limiter 限制resize事件速率
@@ -18,6 +18,15 @@ export default class Resize {
    * @param {Function} options.resize resize回调函数
    */
   constructor(el, options = {}) {
+    let $el = null
+    if (el instanceof Element) {
+      $el = el
+    } else if (typeof el === 'string') {
+      $el = document.querySelector(el)
+    }
+    if (!$el) {
+      return console.warn('The target element must be a HTMLElement')
+    }
     this.options = Object.assign({
       wait: 150 // The rate limit wait time
     }, options)
