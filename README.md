@@ -1,29 +1,64 @@
 # v-resize-observer
 
-## Project setup
+Resize observer for Vue.
+
+## Install
 ```
-yarn install
+npm install v-resize-observer
 ```
 
-### Compiles and hot-reloads for development
+## Usage
+
+```js
+import ResizeObserver from 'v-resize-observer'
+
+vue.use(ResizeObserver)
 ```
-yarn serve
+### directive
+```html
+<div v-resize="hanldResize" />
+
+<div v-resize:debounce="hanldResize" />
+<div v-resize:debounce.200="hanldResize" />
+
+<div v-resize:throttle="hanldResize" />
+<div v-resize:throttle.200="hanldResize" />
 ```
 
-### Compiles and minifies for production
-```
-yarn build
+### component
+```html
+<ResizeObserver @resize="hanldResize">
+  <div></div>
+</ResizeObserver>
+
+
+<ResizeObserver limiter="debounce" :wait="150" @resize="hanldResize">
+  <div></div>
+</ResizeObserver>
 ```
 
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Lints and fixes files
-```
-yarn lint
+```js
+function hanldResize({ width, height }, target) {
+  console.log(`width: ${width}, height: ${height}`)
+}
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## API
+
+| Property | Type     | Default | Description                     |
+| -------- | -------- | ------- | ------------------------------- |
+| disabled | boolean  | false   |                                 |
+| limiter  | function | -       |                                 |
+| wait     | number   | 150     |                                 |
+| resize   | function | -       | Trigger when child node resized |
+
+## Development
+```
+npm install
+npm run dev
+```
+
+## License
+
+`v-resize-observer` is released under the MIT license.
