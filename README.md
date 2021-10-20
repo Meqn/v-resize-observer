@@ -1,10 +1,15 @@
 # v-resize-observer
 
+* [Live Demo](https://meqn.github.io/v-resize-observer/example.html)
+
 Resize observer for Vue.  
 检测DOM元素的尺寸变化。
 
 > support IE9+/Edge/chrome/safari/Firefox
 
+## Documents
+
+[查看文档Documents](https://meqn.github.io/v-resize-observer/)
 ## Install
 ```bash
 npm install v-resize-observer
@@ -39,6 +44,18 @@ export default {
   }
 }
 ```
+
+> 🚨 提醒：  
+> 如果是按需引入指令或组件，则必须在 `vue.config.js` 中配置`transpileDependencies`属性  
+> 默认情况下 `babel-loader` 会忽略 `node_modules` 中的所有依赖文件，如果想显示转换一个依赖模块，则必须将它添加到`transpileDependencies`选项中。  
+> ```js
+> module.exports =  {
+>   transpileDependencies: [
+>     /[/\\]node_modules[/\\]v-resize-observer[/\\]/
+>   ]
+> }
+> ```
+
 ### 使用指令 directive
 > 支持 `1.全局引入` 和 `2.指令引入` 方式
 ```html
@@ -74,7 +91,7 @@ function hanldResize({ width, height }, target) {
 
 | Property | Type     | Default | Description                            |
 | -------- | -------- | ------- | -------------------------------------- |
-| target   | Element  |         | DOM Element                            |
+| target   | Element  | -       | DOM Element                            |
 | disabled | boolean  | false   |                                        |
 | limiter  | function | -       | Limit the rate of resize change events |
 | wait     | number   | 150     | The rate limit wait time               |
