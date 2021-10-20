@@ -1,6 +1,6 @@
 {
   "name": "v-resize-observer",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Resize observer for Vue.",
   "main": "dist/ResizeObserver.umd.js",
   "module": "dist/ResizeObserver.esm.js",
@@ -9,7 +9,15 @@
     "type": "git",
     "url": "git+https://github.com/Meqn/v-resize-observer.git"
   },
-  "keywords": [],
+  "keywords": [
+    "vue-resizse",
+    "vue-component",
+    "vue-directive",
+    "vue",
+    "resize",
+    "ResizeObserver",
+    "vue-resize-observer"
+  ],
   "author": "Mervin <mengqing723@gmail.com>",
   "bugs": {
     "url": "https://github.com/Meqn/v-resize-observer/issues"
@@ -27,6 +35,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@babel/runtime": "^7.15.4",
     "lodash": "^4.17.21",
     "resize-observer-polyfill": "^1.5.1"
   },
