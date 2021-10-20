@@ -1,4 +1,4 @@
-import ResizeObserver from '../lib/ResizeObserver'
+import ResizeObserver from './ResizeObserver'
 
 function getOptions({ value, arg, modifiers }) {
   const options = {}

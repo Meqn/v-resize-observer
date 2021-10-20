@@ -1,6 +1,6 @@
-import ResizeObserver from './lib/ResizeObserver'
-import resizeDirective from './directive/resizeDirective'
-import ResizeComponent from './component/ResizeObserver.vue'
+import ResizeObserver from './ResizeObserver'
+import resizeDirective from './directive'
+import ResizeComponent from './component.vue'
 
 
 const install = function(Vue) {

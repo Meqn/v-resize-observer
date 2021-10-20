@@ -1,5 +1,5 @@
 <script>
-import ResizeObserver from '../lib/ResizeObserver'
+import ResizeObserver from './ResizeObserver'
 
 export default {
   name: 'ResizeObserver',
