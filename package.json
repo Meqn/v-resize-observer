@@ -1,6 +1,7 @@
 {
   "name": "v-resize-observer",
-  "version": "1.0.0",
+  "version": "1.2.1",
+  "description": "Resize observer for Vue.",
   "main": "dist/ResizeObserver.umd.js",
   "module": "dist/ResizeObserver.esm.js",
   "unpkg": "dist/ResizeObserver.min.js",
@@ -8,9 +9,14 @@
     "type": "git",
     "url": "git+https://github.com/Meqn/v-resize-observer.git"
   },
+  "keywords": [],
+  "author": "Mervin <mengqing723@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/Meqn/v-resize-observer/issues"
+  },
   "scripts": {
     "dev": "vue-cli-service serve ./demo/main.js",
-    "build": "NODE_ENV=production rm -rf dist && npm run build:browser && npm run build:es && npm run build:umd",
+    "build": "NODE_ENV=production npm run build:browser && npm run build:es && npm run build:umd",
     "build:browser": "rollup --config build/rollup.config.browser.js",
     "build:es": "rollup --config build/rollup.config.es.js",
     "build:umd": "rollup --config build/rollup.config.umd.js",
@@ -19,6 +25,7 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
+  "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.21",
     "resize-observer-polyfill": "^1.5.1"
