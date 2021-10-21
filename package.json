@@ -1,6 +1,6 @@
 {
   "name": "v-resize-observer",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Resize observer for Vue.",
   "main": "dist/ResizeObserver.umd.js",
   "module": "dist/ResizeObserver.esm.js",
@@ -24,12 +24,13 @@
   },
   "scripts": {
     "dev": "vue-cli-service serve ./demo/main.js",
+    "demo:build": "vue-cli-service build --mode production ./demo/main.js",
     "build": "NODE_ENV=production npm run build:browser && npm run build:es && npm run build:umd",
     "build:browser": "rollup --config build/rollup.config.browser.js",
     "build:es": "rollup --config build/rollup.config.es.js",
     "build:umd": "rollup --config build/rollup.config.umd.js",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
+    "docs:build": "vuepress build docs && npm run demo:build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },

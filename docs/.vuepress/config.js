@@ -11,7 +11,7 @@ module.exports = {
     sidebar: [
       '/',
       ['/guide', 'guide'],
-      ['/example', 'Demo']
+      ['https://meqn.github.com/v-resize-observer/demo/', 'Demo']
     ]
   }
 }
