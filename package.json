@@ -1,6 +1,6 @@
 {
   "name": "v-resize-observer",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Resize observer for Vue.",
   "main": "dist/ResizeObserver.umd.js",
   "module": "dist/ResizeObserver.esm.js",

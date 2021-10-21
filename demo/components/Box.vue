@@ -11,7 +11,7 @@ export default {
 <style>
 .box{
   display: flex; align-items: center; justify-content: center;
-  height: 20vw;
+  height: 15vw;
   margin: 20px;
   border: 1px solid blue;
 }

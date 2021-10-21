@@ -1,95 +1,32 @@
-# v-resize-observer
+---
+home: true
+heroText: v-resize-observer
+tagline: 基于ResizeObserver监测DOM元素的尺寸变化。
+actionText: 快速上手 →
+actionLink: /guide/
+features:
+- title: 使用简洁
+  details: 可以快速全局注册，也可以单独引入指令或组件。
+- title: 支持指令/组件
+  details: 支持使用`v-resize`指令，也可以使用`<ResizeObserver />`进行监听，并提供debounce和throttle限制触发机制。
+- title: 高性能
+  details: 基于Resize Observer API提供的高性能的机制，代码可以监视元素的大小更改，并且每次大小更改时都会向观察者传递通知。
+footer: MIT Licensed | Copyright © 2021-present Evan You
+---
 
-Resize observer for Vue. ([GitHub](https://github.com/Meqn/v-resize-observer))   
-检测DOM元素的尺寸变化。
+::: tip
+support IE9+/Edge/Chrome/Safari/Firefox
+:::
 
-> support IE9+/Edge/chrome/safari/Firefox
+## 快速上手
 
-
-[[toc]]
-
-## Install
-```bash
-npm install v-resize-observer
-```
-
-## Usage
-
-1. 全局引入方式
 ```js
+// 引入
 import ResizeObserver from 'v-resize-observer'
-
+// 全局注册
 vue.use(ResizeObserver)
 ```
-2. 仅引入指令方式 `directive`
-```js
-import resizeDirective from 'v-resize-observer/src/directive'
-
-export default {
-  directives: {
-    resize: resizeDirective
-  }
-}
-```
-
-3. 仅引入组件方式 `component`
-```js
-import ResizeComponent from 'v-resize-observer/src/component'
-
-export default {
-  components: {
-    ResizeObserver: ResizeComponent
-  }
-}
-```
-### 使用指令 directive
-> 支持 `1.全局引入` 和 `2.指令引入` 方式
+页面内使用
 ```html
-<div v-resize="hanldResize" />
-
-<div v-resize:debounce="hanldResize" />
-<div v-resize:debounce.200="hanldResize" />
-
-<div v-resize:throttle="hanldResize" />
-<div v-resize:throttle.200="hanldResize" />
+<div v-resize="handleResize"></div>
 ```
-
-### 使用组件 component
-> 支持 `1.全局引入` 和 `3.组件引入` 方式
-```html
-<ResizeObserver @resize="hanldResize">
-  <div></div>
-</ResizeObserver>
-
-
-<ResizeObserver limiter="debounce" :wait="150" @resize="hanldResize">
-  <div></div>
-</ResizeObserver>
-```
-
-```js
-function hanldResize({ width, height }, target) {
-  console.log(`width: ${width}, height: ${height}`)
-}
-```
-
-## API
-
-| Property | Type     | Default | Description                            |
-| -------- | -------- | ------- | -------------------------------------- |
-| target   | Element  |         | DOM Element                            |
-| disabled | boolean  | false   |                                        |
-| limiter  | function | -       | Limit the rate of resize change events |
-| wait     | number   | 150     | The rate limit wait time               |
-| resize   | function | -       | Trigger when child node resized        |
-
-
-## Development
-```
-npm install
-npm run dev
-```
-
-## License
-
-`v-resize-observer` is released under the MIT license.
