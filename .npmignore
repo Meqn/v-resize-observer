@@ -1,0 +1,7 @@
+.*
+build/
+example/
+docs/
+node_modules/
+tests/
+types/
