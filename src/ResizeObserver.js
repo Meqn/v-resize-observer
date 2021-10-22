@@ -60,22 +60,24 @@ export default class Resize {
   }
 
   _handleResize(entries) {
-    const target = entries[0].target
-    const { width, height } = target.getBoundingClientRect()
+    for(const entry of entries) {
+      const target = entry.target
+      const { width, height } = target.getBoundingClientRect()
 
-    const fixedWidth = Math.floor(width)
-    const fixedHeight = Math.floor(height)
+      const fixedWidth = Math.floor(width)
+      const fixedHeight = Math.floor(height)
 
-    if (this.width !== fixedWidth || this.height !== fixedHeight) {
-      const size = { width: fixedWidth, height: fixedHeight }
-      this.width = fixedWidth
-      this.height = fixedHeight
+      if (this.width !== fixedWidth || this.height !== fixedHeight) {
+        const size = { width: fixedWidth, height: fixedHeight }
+        this.width = fixedWidth
+        this.height = fixedHeight
 
-      const { resize } = this.options
-      if (typeof resize === 'function') {
-        Promise.resolve().then(() => {
-          resize(size, target)
-        })
+        const { resize } = this.options
+        if (typeof resize === 'function') {
+          Promise.resolve().then(() => {
+            resize(size, target)
+          })
+        }
       }
     }
   }
