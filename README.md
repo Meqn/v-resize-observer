@@ -1,6 +1,6 @@
 # v-resize-observer
 
-* [Live Demo](https://meqn.github.io/v-resize-observer/example.html)
+* [Live Demo](https://meqn.github.io/v-resize-observer/example/)
 
 Resize observer for Vue.  
 检测DOM元素的尺寸变化。
