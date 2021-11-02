@@ -1,11 +1,12 @@
 {
   "name": "v-resize-observer",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Resize observer for Vue.",
   "main": "dist/ResizeObserver.umd.js",
   "module": "dist/ResizeObserver.esm.js",
   "unpkg": "dist/ResizeObserver.min.js",
   "jsdelivr": "dist/ResizeObserver.min.js",
+  "types": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Meqn/v-resize-observer.git"

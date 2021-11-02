@@ -2,7 +2,6 @@
 node_modules
 dist
 **/.vuepress/dist
-types
 NOTE.md
 
 # local env files
