@@ -38,7 +38,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "^7.15.4",
     "lodash": "^4.17.21",
     "resize-observer-polyfill": "^1.5.1"
   },
@@ -52,6 +51,7 @@
     "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/test-utils": "^1.0.3",
+    "@babel/runtime": "^7.15.4",
     "babel-eslint": "^10.1.0",
     "core-js": "^3.6.5",
     "eslint": "^6.7.2",

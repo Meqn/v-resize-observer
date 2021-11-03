@@ -4,5 +4,13 @@ module.exports = {
     : '/',
   outputDir: 'docs/.vuepress/dist/example',
   assetsDir: 'assets',
-  indexPath: 'index.html'
+  indexPath: 'index.html',
+  chainWebpack (config) {
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].template = 'example/template.html'
+        return args
+      })
+  }
 }
