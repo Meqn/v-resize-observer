@@ -7,57 +7,26 @@ Resize observer for Vue. ([GitHub](https://github.com/Meqn/v-resize-observer))
 
 [[toc]]
 
+
 ## Install
+
 ```bash
 npm install v-resize-observer
 ```
 
 ## Usage
 
-1. 全局引入方式
+### 1. Global registration
+
+in `main.js`
 ```js
 import ResizeObserver from 'v-resize-observer'
-
 vue.use(ResizeObserver)
 ```
-2. 仅引入指令方式 `directive`
-```js
-import resizeDirective from 'v-resize-observer/src/directive'
 
-export default {
-  directives: {
-    resize: resizeDirective
-  }
-}
-```
-
-3. 仅引入组件方式 `component`
-```js
-import ResizeComponent from 'v-resize-observer/src/component'
-
-export default {
-  components: {
-    ResizeObserver: ResizeComponent
-  }
-}
-```
-
-::: danger 🚨 提醒：  
-如果是按需引入指令或组件，则必须在 `vue.config.js` 中配置`transpileDependencies`属性.    
-默认情况下 `babel-loader` 会忽略 `node_modules` 中的所有依赖文件，如果想显示转换一个依赖模块，则必须将它添加到`transpileDependencies`选项中。  
-```js
-module.exports =  {
-  transpileDependencies: [
-    /[/\\]node_modules[/\\]v-resize-observer[/\\]/
-  ]
-}
-```
-:::
-
-
-### 使用指令 directive
-> 支持 `1.全局引入` 和 `2.指令引入` 方式
+in `page.vue`
 ```html
+<!-- 1. use directive -->
 <div v-resize="hanldResize" />
 
 <div v-resize:debounce="hanldResize" />
@@ -65,44 +34,90 @@ module.exports =  {
 
 <div v-resize:throttle="hanldResize" />
 <div v-resize:throttle.200="hanldResize" />
+
+
+<!-- 2. use component -->
+<ResizeObserver limiter="debounce" :wait="100" @resize="handleResize">
+  <div>content...</div>
+</ResizeObserver>
 ```
 
-### 使用组件 component
-> 支持 `1.全局引入` 和 `3.组件引入` 方式
+
+
+### 2. use  `directive`
+
 ```html
-<ResizeObserver @resize="hanldResize">
-  <div></div>
-</ResizeObserver>
+<template>
+  <div v-resize:debounce="handleResize">
+    content
+  </div>
+</template>
+<script>
+import ResizeObserver from 'v-resize-observer'
 
-
-<ResizeObserver target="#app" limiter="debounce" :wait="150" @resize="hanldResize">
-  <div></div>
-</ResizeObserver>
-```
-
-```js
-function hanldResize({ width, height }, target) {
-  console.log(`width: ${width}, height: ${height}`)
+export default {
+  directives: {
+    resize: ResizeObserver.directive
+  },
+  methods: {
+    handleResize({ width, height }, target) {
+      console.log(`width: ${width}, height: ${height}`)
+    }
+  }
 }
+</script>
 ```
+
+
+
+### 3. use `component`
+
+```html
+<template>
+  <ResizeObserver limiter="debounce" :wait="100" @resize="handleResize">
+    <div>content...</div>
+  </ResizeObserver>
+</template>
+<script>
+import ResizeObserver from 'v-resize-observer'
+
+export default {
+  components: {
+    ResizeObserver: ResizeObserver.component
+  },
+  methods: {
+    handleResize({ width, height }, target) {
+      console.log(`width: ${width}, height: ${height}`)
+    }
+  }
+}
+</script>
+```
+
+
 
 ## API
 
-| Property | Type     | Default | Description                            |
-| -------- | -------- | ------- | -------------------------------------- |
-| target   | Element  | -       | DOM Element                            |
-| disabled | boolean  | false   |                                        |
-| limiter  | function | -       | Limit the rate of resize change events |
-| wait     | number   | 150     | The rate limit wait time               |
-| resize   | function | -       | Trigger when child node resized        |
+| Property | Type     | Default | Description                                                  |
+| -------- | -------- | ------- | ------------------------------------------------------------ |
+| target   | Element  | -       | DOM Element                                                  |
+| disabled | boolean  | false   |                                                              |
+| limiter  | function | -       | Limit the rate of resize change events, support: `debounce` or `debounce` |
+| wait     | number   | 150     | The rate limit wait time                                     |
+| resize   | function | -       | Trigger when child node resized                              |
+
 
 
 ## Development
+
 ```
 npm install
 npm run dev
 ```
 
+
+
 ## License
 
 `v-resize-observer` is released under the MIT license.
+
