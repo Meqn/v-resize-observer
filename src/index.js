@@ -19,6 +19,6 @@ ResizeObserver.install = install
 ResizeObserver.directive = resizeDirective
 ResizeObserver.component = ResizeComponent
 // eslint-disable-next-line no-undef
-ResizeObserver.version = VERSION
+// ResizeObserver.version = VERSION
 
 export default ResizeObserver

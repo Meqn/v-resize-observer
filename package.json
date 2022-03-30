@@ -1,6 +1,6 @@
 {
   "name": "v-resize-observer",
-  "version": "1.6.1",
+  "version": "1.6.3",
   "description": "Resize observer for Vue.",
   "main": "dist/ResizeObserver.umd.js",
   "module": "dist/ResizeObserver.esm.js",
@@ -13,12 +13,12 @@
   },
   "keywords": [
     "vue-resize",
-    "vue-component",
-    "vue-directive",
+    "vue-resize-observer",
+    "vue-resize-component",
+    "vue-resize-directive",
     "vue",
     "resize",
-    "ResizeObserver",
-    "vue-resize-observer"
+    "ResizeObserver"
   ],
   "author": "Mervin <mengqing723@gmail.com>",
   "bugs": {

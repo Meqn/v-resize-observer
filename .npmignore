@@ -1,5 +1,6 @@
 build/
 example/
 docs/
+src/
 node_modules/
 tests/
