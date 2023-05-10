@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telphone=no">
+<title>resize</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+<div id="box" style="width:80%;height: 500px; border:5px solid #f00;margin: 20px;"></div>
+<script type="module">
+import Resize from './ResizeObserver.mjs'
+console.log(Resize === window.ResizeObserver)
+
+var ro = new Resize((entries) => {
+  for (const entry of entries) {
+    console.log(entry)
+  }
+})
+ro.observe(document.querySelector('#box'))
+
+</script>
+</body>
+</html>
