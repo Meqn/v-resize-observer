@@ -1,0 +1,59 @@
+{
+  "name": "v-resize-observer",
+  "version": "2.0.0",
+  "description": "Resize observer for Vue.",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.iife.js",
+  "jsdelivr": "dist/index.iife.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.esm.js",
+      "default": "./dist/index.iife.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Meqn/v-resize-observer.git"
+  },
+  "keywords": [
+    "vue-resize",
+    "vue-resize-observer",
+    "vue-resize-component",
+    "vue-resize-directive",
+    "vue",
+    "resize",
+    "ResizeObserver"
+  ],
+  "author": "Mervin <mengqing723@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/Meqn/v-resize-observer/issues"
+  },
+  "scripts": {
+    "clean": "rimraf -rf ./dist",
+    "dev": "NODE_ENV=development rollup -c rollup.config.mjs -w",
+    "build": "npm run clean && NODE_ENV=production rollup -c rollup.config.mjs"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "vue-demi": "latest",
+    "lodash": "^4.17.21",
+    "resize-observer-polyfill": "^1.5.1"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.7.0",
+    "vue": "^2.5.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@vue/composition-api": "^1.7.1",
+    "vue": "^3.0.0"
+  }
+}
