@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf node_modules && rm -rf dist && rm -rf **/*/node_modules && rm -rf **/*/dist",
+    "clean2": "rm -rf node_modules && rm -rf */**/node_modules && rm -rf dist && */**/dist",
+    "clean": "find . -type d \\( -name \"dist\" -o -name \"node_modules\" \\) -exec rm -r {} \\;",
     "vue2": "pnpm -F vue2 run dev",
     "vue3": "pnpm -F vue3 run dev",
     "build": "pnpm -F v-resize-observer run build"
