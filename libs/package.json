@@ -1,7 +1,7 @@
 {
   "name": "v-resize-observer",
   "version": "2.0.0",
-  "description": "Resize observer for Vue.",
+  "description": "Resize observer for Vue. Detect size changes of DOM elements. Support Vue's directive and component.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "unpkg": "dist/index.iife.js",
