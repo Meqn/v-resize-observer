@@ -9,26 +9,27 @@
 
 
 
----
 [ [Enlish](./README.md) | [中文](./README.zh_CN.md) ]
 
 
 
 Resize observer for Vue.  
-检测DOM元素的尺寸变化。支持Vue的指令和组件方式。
+Detect size changes of DOM elements. Support Vue's directive and component.
 
 
 
 ## Feature
-1. 基于原生`ResizeObservable API`实现
-2. 支持`vue2`和`vue3`
-3. 支持指令或组件的使用方式
-4. 优化性能，提供限制resize事件触发频率机制
-5. 兼容 IE9+/Edge/Chrome/Safari/Firefox
+1. Based on `ResizeObservable API` implementation
+2. Support `vue2` and `vue3`
+3. Support the use of directives or components
+4. Optimization: Provide mechanism to limit resize event triggering frequency
+5. Support browsers: IE9+/Edge/Chrome/Safari/Firefox
+
 
 
 ## Install
 
+**npm**
 ```
 npm install v-resize-observer
 ```
@@ -42,20 +43,20 @@ npm install v-resize-observer
 
 ## Usage
 
-- [vue2.x 示例]()
-- [vue3.x 示例]()
+- [Vue2.x Example](https://github.com/Meqn/v-resize-observer/tree/main/examples/vue2)
+- [Vue3.x Example](https://github.com/Meqn/v-resize-observer/tree/main/examples/vue3)
 
 ```html
 <template>
   <div id="app">
-    <!-- 指令方式 -->
+    <!-- directives -->
     <div v-resize:50="onResize">
-      被监听的元素
+      Listened to elements
     </div>
     
-    <!-- 组件方式 -->
+    <!-- Components -->
     <ResizeComponent @resize="onResize" :delay="100" :disabled="disabled">
-      <div>被监听的元素</div>
+      <div>Listened to elements</div>
     </ResizeComponent>
   </div>
 </template>
@@ -72,47 +73,47 @@ function onResize({ width, height }, target) {
 </script>
 ```
 
-### 1. 全局注册
+### 1. Global Configuration
 ```js
-// main.js 入口文件
-import vResizeObserver from 'v-resize-observer'
+// main.js
+import Resizer from 'v-resize-observer'
 
 // vue@3.x
 const app = createApp(App)
-app.use(vResizeObserver, {
-  // 自定义指令名和组件名，这里是默认值
+app.use(Resizer, {
+  // Custom command names and component names
   directive: 'resize',
   component: 'ResizeComponent'
 })
 
 // vue@2.x
-Vue.use(vResizeObserver)
+Vue.use(Resizer)
 ```
 
-使用：
+Use:
 ```html
-<!-- 指令方式 -->
-<div v-resize="onResize">被监听的元素</div>
+<!-- directives -->
+<div v-resize="onResize">Listened to elements</div>
     
-<!-- 组件方式 -->
+<!-- Components -->
 <ResizeComponent @resize="onResize" :delay="100" :disabled="disabled">
-  <div>被监听的元素</div>
+  <div>Listened to elements</div>
 </ResizeComponent>
 ```
 
-### 2. 局部引入
+### 2. On demand
 ```html
 <script setup>
 import { ref } from 'vue'
 import {
   ResizeComponent,
-  resizeDirective as vResizeObserver //可以更改指令名称，默认 `v-resize, 
+  resizeDirective as vResizeObserver //You can change the directive name, the default: `v-resize, 
 } from 'v-resize-observer'
 
-// 或者
-// import vResizeObserver from 'v-resize-observer'
-// const ResizeComponent = vResizeObserver.component
-// const vResize = vResizeObserver.directive
+// OR
+// import Resizer from 'v-resize-observer'
+// const ResizeComponent = Resizer.component
+// const vResize = Resizer.directive
 
 function onResize({ width, height }, target) {
   console.log(target, width, height)
@@ -121,14 +122,14 @@ function onResize({ width, height }, target) {
 
 <template>
   <div id="app">
-    <!-- 指令方式 -->
+    <!-- directives -->
     <div v-resize-observer:100="onResize">
-      被监听的元素
+      Listened to elements
     </div>
     
-    <!-- 组件方式 -->
+    <!-- Components -->
     <ResizeComponent @resize="onResize">
-      <div>被监听的元素</div>
+      <div>Listened to elements</div>
     </ResizeComponent>
   </div>
 </template>
@@ -136,48 +137,48 @@ function onResize({ width, height }, target) {
 
 
 ## API
-| Parameter | Type     | Default | Description                                                  |
-| -------- | -------- | ------- | ------------------------------------------------------------ |
-| `target`   | `string`, `HTMLElement`  | -       | 监听的目标元素                                                  |
-| `disabled` | `boolean`  | `false`   | 是否禁用监听                                                             |
-| `delay`     | `number`   | `150`     | 延时执行时间                                     |
-| `resize`   | `function` | -       | 监听元素尺寸变化时的回调函数                              |
+| Parameter  | Type                    | Default | Description                                             |
+| ---------- | ----------------------- | ------- | ------------------------------------------------------- |
+| `target`   | `string`, `HTMLElement` | -       | Target elements to listen to                            |
+| `disabled` | `boolean`               | `false` | disable listening                                       |
+| `delay`    | `number`                | `150`   | Delayed execution time                                  |
+| `resize`   | `function`              | -       | Callback function to listen for changes in element size |
 
 `resize(data, target)`
-- `data` : 监听元素的尺寸 `{ width, height }`
-- `target` : 监听的元素
+- `data` : elements size `{ width, height }`
+- `target` : Listening elements
 
 
-## 指令 directive
+## use `directive`
 
-> 指令名称默认 `v-resize`, 如果需要更改指令名称，可以在引入时指定。
+> The directive default name is `v-resize`, if you want to change it, you can specify it when you import it.
 
 
 ```html
 <div v-resize="onResize" />
 
 <div v-resize:100="onResize" />
-<!-- 不限制 -->
+<!-- No limit on trigger frequency -->
 <div v-resize:0="onResize" />
 ```
-**参数说明：**
-- 指令`arg`: 表示`delay`, 延时执行时间
-- 指令`value`: 表示 `resize`, 回调函数
+**Parameter：**
+- `arg`: => `delay`
+- `value`: => `resize`
 
 
-## 组件 Component
+## use `Component`
 ```html
 <ResizeComponent target="#app" :delay="0" disabled="false" @resize="onResize">
-  <div>被监听的元素</div>
+  <div>Listened to elements</div>
 </ResizeComponent>
 ```
 ### props
-- `target`: 监听的目标元素，默认当前元素。
-- `delay`: 延时执行时间，默认为0。
-- `disabled`: 是否禁用监听。
+- `target`: The target element to listen to, the default current element.
+- `delay`: Delay execution time, default: `150`.
+- `disabled`: disable listening.
 
 ### events
-- `resize`: 当监听元素尺寸变化时触发。
+- `resize`: Triggered when listening for element size changes.
 
 
 
@@ -185,14 +186,15 @@ function onResize({ width, height }, target) {
 
 ### v2.0.0
 #### 🚀 Features
-- feat: 兼容 vue2.x 和 3.x
-- feat: 支持全局注册自定义指令名和组件名
-- feat: 增加重新监听功能
-- feat: 增加Typescript类型提示
-- perf: 优化指令参数
-- perf: ES引入方式
+- feat: compatible with vue2.x and 3.x;
+- feat: add Typescript type hints;
+- feat: support for global registration of custom directive names and component names;
+- feat: add re-listening function;
+- perf: remove the `limiter` trigger limit option;
+- perf: change the delay time `wait` to `delay`;
+
 #### 🐞 Bug Fixes
-- fix: 修复禁用监听的问题
+- fix: Fixed failure to listen again after disabling listening.
 
 ### v1.x
-- [v1.x文档]()
+- [v1.x Documents](https://meqn.github.io/v-resize-observer/)
