@@ -29,6 +29,8 @@ export {
 export default {
   install,
   ResizeObserver,
+  ResizeComponent,
+  resizeDirective,
   directive: resizeDirective,
   component: ResizeComponent
 }
