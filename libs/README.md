@@ -9,7 +9,7 @@
 
 
 
-[ [Enlish](./README.md) | [中文](./README.zh_CN.md) ]
+[ [Enlish](https://github.com/Meqn/v-resize-observer/blob/main/libs/README.zh_CN.md) | [中文](https://github.com/Meqn/v-resize-observer/blob/main/libs/README.zh_CN.md) ]
 
 
 
