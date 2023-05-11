@@ -3,15 +3,21 @@ import resizeDirective from './directive'
 import ResizeComponent from './component'
 
 type InstallFunc = {
-  (app: any): void;
+  (app: any, ...options: any[]): void;
   installed?: boolean
 }
 
-const install: InstallFunc = (app) => {
+interface InstallOption {
+  directive?: string
+  component?: string
+}
+
+const install: InstallFunc = (app, options: InstallOption = {}) => {
   if (install.installed) return
   install.installed = true
-  app.directive('resize', resizeDirective)
-  app.component('ResizeComponent', ResizeComponent)
+
+  app.directive(options.directive || 'resize', resizeDirective)
+  app.component(options.component || 'ResizeComponent', ResizeComponent)
 }
 
 export {

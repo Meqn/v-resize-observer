@@ -12,7 +12,7 @@ export interface IOptions {
   delay?: number
   wait?: number
   /**
-   * 监听元素尺寸变化的回调函数
+   * 监听的元素尺寸变化时回调函数
    * @param data 目标元素宽高
    * @param target 目标元素
    * @returns 
