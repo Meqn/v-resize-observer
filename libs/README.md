@@ -16,14 +16,16 @@
 Resize observer for Vue.  
 Detect size changes of DOM elements. Support Vue's directive and component.
 
+- [Vue2 Live](https://stackblitz.com/edit/vite-vue2-resize-demo?file=src%2FApp.vue)
+- [Vue3 Live](https://stackblitz.com/edit/vite-vue3-resize-demo?file=src%2FApp.vue)
 
 
 ## Feature
-1. Based on `ResizeObservable API` implementation
-2. Support `vue2` and `vue3`
-3. Support the use of directives or components
-4. Optimization: Provide mechanism to limit resize event triggering frequency
-5. Support browsers: IE9+/Edge/Chrome/Safari/Firefox
+- 🕰 Based on `ResizeObservable API` implementation
+- 🎁 Support `vue2` and `vue3`
+- 💊 Support the use of directives or components
+- 🧲 Optimization: Provide mechanism to limit resize event triggering frequency
+- 🛠 Support browsers: IE9+/Edge/Chrome/Safari/Firefox
 
 
 
@@ -88,17 +90,6 @@ app.use(Resizer, {
 
 // vue@2.x
 Vue.use(Resizer)
-```
-
-Use:
-```html
-<!-- directives -->
-<div v-resize="onResize">Listened to elements</div>
-    
-<!-- Components -->
-<ResizeComponent @resize="onResize" :delay="100" :disabled="disabled">
-  <div>Listened to elements</div>
-</ResizeComponent>
 ```
 
 ### 2. On demand

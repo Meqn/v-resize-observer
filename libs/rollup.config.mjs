@@ -64,7 +64,7 @@ function generateLib(outputs) {
       config.external = [
         'vue-demi',
       ]
-      // config.plugins.push(terser())
+      config.plugins.push(terser())
     } else {
       config.external = [
         'vue-demi',
