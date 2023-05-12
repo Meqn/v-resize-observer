@@ -19,10 +19,12 @@ function onResize(data: any, el: HTMLElement) {
 
 <template>
   <div id="app">
-    <ResizeComponent @resize="onResize">
+    <ResizeComponent target="#main" @resize="onResize">
       <header class="header" data-name="header">
-        <ResizeComponent @resize="onResize" :delay="50" target="#main">
-          <h1>v-resize-observer</h1>
+        <ResizeComponent @resize="onResize" :delay="50">
+          <h1 data-name="title" style="width: 100%; text-align: center">
+            v-resize-observer
+          </h1>
         </ResizeComponent>
       </header>
     </ResizeComponent>

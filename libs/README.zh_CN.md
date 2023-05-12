@@ -16,13 +16,17 @@
 检测DOM元素的尺寸变化。支持Vue的指令和组件方式。
 
 
+- [Vue2 Live](https://stackblitz.com/edit/vite-vue2-resize-demo?file=src%2FApp.vue)
+- [Vue3 Live](https://stackblitz.com/edit/vite-vue3-resize-demo?file=src%2FApp.vue)
+
+
 
 ## Feature
-1. 基于`ResizeObservable API`实现
-2. 支持`vue2`和`vue3`
-3. 支持指令或组件的使用方式
-4. 优化: 提供限制resize事件触发频率机制
-5. 兼容 IE9+/Edge/Chrome/Safari/Firefox
+- 🕰 基于`ResizeObservable API`实现
+- 🎁 支持`vue2`和`vue3`
+- 💊 支持指令或组件的使用方式
+- 🧲 优化: 提供限制resize事件触发频率机制
+- 🛠 兼容 IE9+/Edge/Chrome/Safari/Firefox
 
 
 ## Install
@@ -86,17 +90,6 @@ app.use(Resizer, {
 
 // vue@2.x
 Vue.use(Resizer)
-```
-
-使用：
-```html
-<!-- 指令方式 -->
-<div v-resize="onResize">被监听的元素</div>
-    
-<!-- 组件方式 -->
-<ResizeComponent @resize="onResize" :delay="100" :disabled="disabled">
-  <div>被监听的元素</div>
-</ResizeComponent>
 ```
 
 ### 2. 局部引入

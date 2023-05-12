@@ -19,10 +19,12 @@ function onResize(data: any, el: HTMLElement) {
 
 <template>
   <div>
-    <ResizeComponent @resize="onResize">
+    <ResizeComponent target="#main" @resize="onResize">
       <header class="header" data-name="header">
-        <ResizeComponent @resize="onResize" :delay="50" target="#main">
-          <h1>v-resize-observer</h1>
+        <ResizeComponent @resize="onResize" :delay="50">
+          <h1 data-name="title" style="width: 100%; text-align: center">
+            v-resize-observer
+          </h1>
         </ResizeComponent>
       </header>
     </ResizeComponent>
@@ -39,31 +41,36 @@ function onResize(data: any, el: HTMLElement) {
 </template>
 
 <style>
-html, body{ margin: 0; padding: 0;}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 #app {
   overflow: hidden;
   box-sizing: border-box;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
-  width: 100vw;
+  max-width: 100% !important;
+  width: 100vw !important;
   height: 100vh;
   padding: 20px;
 }
-.header{
+.header {
   height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #eee;
 }
-.main{
+.main {
   flex: 1;
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
   background-color: #eeeeee;
 }
-.main > div{
+.main > div {
   width: 30%;
   min-width: 100px;
   border: 1px solid rgb(0, 179, 164);
