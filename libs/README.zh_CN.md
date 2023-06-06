@@ -9,7 +9,7 @@
 
 
 
-[ [Enlish](https://github.com/Meqn/v-resize-observer/blob/main/libs/README.zh_CN.md) | [中文](https://github.com/Meqn/v-resize-observer/blob/main/libs/README.zh_CN.md) ]
+[ [English](https://github.com/Meqn/v-resize-observer/blob/main/libs/README.zh_CN.md) | [中文](https://github.com/Meqn/v-resize-observer/blob/main/libs/README.zh_CN.md) ]
 
 
 
@@ -24,8 +24,8 @@
 ## Feature
 - 🕰 基于`ResizeObservable API`实现
 - 🎁 支持`vue2`和`vue3`
-- 💊 支持指令或组件的使用方式
-- 🧲 优化: 提供限制resize事件触发频率机制
+- 💊 支持vue指令或组件的使用方式
+- 🧲 优化(限制)触发resize事件频率
 - 🛠 兼容 IE9+/Edge/Chrome/Safari/Firefox
 
 

@@ -9,7 +9,7 @@
 
 
 
-[ [Enlish](https://github.com/Meqn/v-resize-observer/blob/main/libs/README.zh_CN.md) | [中文](https://github.com/Meqn/v-resize-observer/blob/main/libs/README.zh_CN.md) ]
+[ [English](https://github.com/Meqn/v-resize-observer/blob/main/libs/README.zh_CN.md) | [中文](https://github.com/Meqn/v-resize-observer/blob/main/libs/README.zh_CN.md) ]
 
 
 
@@ -24,7 +24,7 @@ Detect size changes of DOM elements. Support Vue's directive and component.
 - 🕰 Based on `ResizeObservable API` implementation
 - 🎁 Support `vue2` and `vue3`
 - 💊 Support the use of directives or components
-- 🧲 Optimization: Provide mechanism to limit resize event triggering frequency
+- 🧲 Optimize the frequency of triggering resize events
 - 🛠 Support browsers: IE9+/Edge/Chrome/Safari/Firefox
 
 
