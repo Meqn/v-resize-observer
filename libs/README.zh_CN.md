@@ -52,7 +52,7 @@ npm install v-resize-observer
 <template>
   <div id="app">
     <!-- 指令方式 -->
-    <div v-resize:50="onResize">
+    <div v-resize:50.immediate="onResize">
       被监听的元素
     </div>
     
@@ -131,8 +131,9 @@ function onResize({ width, height }, target) {
 | Parameter  | Type                    | Default | Description                  |
 | ---------- | ----------------------- | ------- | ---------------------------- |
 | `target`   | `string`, `HTMLElement` | -       | 监听的目标元素               |
-| `disabled` | `boolean`               | `false` | 是否禁用监听                 |
 | `delay`    | `number`                | `150`   | 延时执行时间                 |
+| `immediate` | `boolean`               | `false` | 是否立即执行一次回调函数                 |
+| `disabled` | `boolean`               | `false` | 是否禁用监听                 |
 | `resize`   | `function`              | -       | 监听元素尺寸变化时的回调函数 |
 
 `resize(data, target)`
@@ -155,6 +156,7 @@ function onResize({ width, height }, target) {
 **参数说明：**
 - 指令`arg`: 表示`delay`, 延时执行时间
 - 指令`value`: 表示 `resize`, 回调函数
+- 修饰符`modifiers`属性`immediate`: 表示是否立即执行一次回调函数
 
 
 ## 组件 Component
@@ -166,7 +168,8 @@ function onResize({ width, height }, target) {
 ### props
 - `target`: 监听的目标元素，默认当前元素。
 - `delay`: 延时执行时间，默认:`150`。
-- `disabled`: 是否禁用监听。
+- `immediate`: 立即执行一次回调函数，默认:`false`。
+- `disabled`: 是否禁用监听，默认:`false`。
 
 ### events
 - `resize`: 当监听元素尺寸变化时触发。

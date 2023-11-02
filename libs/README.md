@@ -52,7 +52,7 @@ npm install v-resize-observer
 <template>
   <div id="app">
     <!-- directives -->
-    <div v-resize:50="onResize">
+    <div v-resize:50.immediate="onResize">
       Listened to elements
     </div>
     
@@ -125,15 +125,17 @@ function onResize({ width, height }, target) {
   </div>
 </template>
 ```
-
+立即执行一次callback
 
 ## API
 | Parameter  | Type                    | Default | Description                                             |
 | ---------- | ----------------------- | ------- | ------------------------------------------------------- |
 | `target`   | `string`, `HTMLElement` | -       | Target elements to listen to                            |
-| `disabled` | `boolean`               | `false` | disable listening                                       |
 | `delay`    | `number`                | `150`   | Delayed execution time                                  |
+| `immediate` | `boolean`               | `false` | executed immediately                                       |
+| `disabled` | `boolean`               | `false` | disable listening                                       |
 | `resize`   | `function`              | -       | Callback function to listen for changes in element size |
+
 
 `resize(data, target)`
 - `data` : elements size `{ width, height }`
@@ -149,12 +151,14 @@ function onResize({ width, height }, target) {
 <div v-resize="onResize" />
 
 <div v-resize:100="onResize" />
+<div v-resize:100.immediate="onResize" />
 <!-- No limit on trigger frequency -->
 <div v-resize:0="onResize" />
 ```
 **Parameter：**
 - `arg`: => `delay`
 - `value`: => `resize`
+- `modifiers.immediate`
 
 
 ## use `Component`
@@ -166,7 +170,8 @@ function onResize({ width, height }, target) {
 ### props
 - `target`: The target element to listen to, the default current element.
 - `delay`: Delay execution time, default: `150`.
-- `disabled`: disable listening.
+- `immediate`: Execute immediately, default: `false`.
+- `disabled`: disable listening, default: `false`.
 
 ### events
 - `resize`: Triggered when listening for element size changes.
