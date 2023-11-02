@@ -17,11 +17,11 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
+      'vue': fileURLToPath(new URL('../../node_modules/vue', import.meta.url)),
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  server: {
-    host: '0.0.0.0',
-    port: 3002
+  optimizeDeps: {
+    exclude: ['vue-demi']
   }
 })

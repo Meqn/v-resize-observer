@@ -1,5 +1,6 @@
 {
   "name": "vue2",
+  "private": true,
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -9,8 +10,7 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "v-resize-observer": "workspace:^2.0.0",
-    "vue": "^2.7.7"
+    "v-resize-observer": "workspace:^"
   },
   "devDependencies": {
     "@types/node": "^16.11.45",
