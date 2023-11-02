@@ -2,18 +2,20 @@ import { isVue2 } from 'vue-demi'
 import ResizeObserver from './ResizeObserver'
 import type { IOptions } from './types'
 
-function getOptions({ value, arg }): IOptions {
+function getOptions({ value, arg, modifiers }): IOptions {
   const options: IOptions = {}
   if (typeof value === 'function') {
     options.resize = value
   }
   options.delay = isNaN(parseInt(arg)) ? 150 : parseInt(arg)
-
+  options.immediate = !!modifiers.immediate
+  
   return options
 }
 
 const directive = {
-  bind(el, binding) {
+  //! 这里使用 `inserted` 钩子，表示元素被插入父节点中
+  inserted(el, binding) {
     const { value } = binding
     if (value && typeof value !== 'function') {
       return console.warn('v-resize should received a function as value')
@@ -30,6 +32,6 @@ const directive = {
 }
 
 export default isVue2 ? directive : {
-  mounted: directive.bind,
+  mounted: directive.inserted,
   beforeUnmount: directive.unbind
 }
