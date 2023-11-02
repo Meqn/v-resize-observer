@@ -47,6 +47,10 @@ export default class Resizer {
     this.width = Math.floor(width)
     this.height = Math.floor(height)
     
+    if (typeof this.options.resize === 'function' && this.options.immediate) {
+      this.options.resize({ width, height }, element)
+    }
+    
     if (this.resizeObserver) {
       this.disconnect()
     }

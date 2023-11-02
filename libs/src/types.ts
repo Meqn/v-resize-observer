@@ -12,6 +12,12 @@ export interface IOptions {
   delay?: number
   wait?: number
   /**
+   * 是否立即执行
+   * @type boolean
+   * @default false
+   */
+  immediate?: boolean
+  /**
    * 监听的元素尺寸变化时回调函数
    * @param data 目标元素宽高
    * @param target 目标元素

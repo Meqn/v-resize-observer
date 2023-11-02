@@ -15,6 +15,7 @@ export default defineComponent({
   props: {
     target: [String, Object] as PropType<string | HTMLElement>,
     disabled: Boolean as PropType<boolean>,
+    immediate: Boolean as PropType<boolean>,
     delay: {
       type: Number as PropType<number>,
       default: 150
@@ -43,6 +44,7 @@ export default defineComponent({
       }
       const options: IOptions = {
         delay: props.delay,
+        immediate: props.immediate,
         resize: (data, elem) => {
           vm?.$emit('resize', data, elem)
         }
